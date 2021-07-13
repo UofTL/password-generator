@@ -49,19 +49,19 @@ body {
     width: 2rem;
   }
   
-    /*style the password container*/
+    /*style the password container should be big enough to contain a password of 128 characters*/
   .password-display {
     background-color: #FFFF19;
     color: black;
-    padding: 1rem;
+    padding: 10rem;
     border: 1px solid #F0F8FF;
-    height: 2rem;
+    height: 3rem;
     width: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
     word-break: break-all;
-    border-radius: 1rem;
+    border-radius: 5rem;
   }
   
     /*style the button*/
