@@ -7,10 +7,10 @@ const form = document.getElementById('passwordGeneratorForm')
 const passwordDisplay = document.getElementById('passwordDisplay')
 
 //include all characters from the table code
-const UPPERCASE_CHAR_CODES = arrayFromLowToHigh(65, 90)
-const LOWERCASE_CHAR_CODES = arrayFromLowToHigh(97, 122)
-const NUMBER_CHAR_CODES = arrayFromLowToHigh(48, 57)
-const SYMBOL_CHAR_CODES = arrayFromLowToHigh(33, 47).concat(
+const upperCharsFromTables = arrayFromLowToHigh(65, 90)
+const lowerCharsFromTables = arrayFromLowToHigh(97, 122)
+const digitCharsFromTables = arrayFromLowToHigh(48, 57)
+const specialsCharsFromTables = arrayFromLowToHigh(33, 47).concat(
   arrayFromLowToHigh(58, 64)
 ).concat(
   arrayFromLowToHigh(91, 96)
@@ -35,10 +35,10 @@ form.addEventListener('submit', e => {
 
 //generate random password by selecting (upper, lower or special characters) by default it will be lower case
 function generatePassword(characterAmount, includeUppercase, includeNumbers, includeSymbols) {
-  let charCodes = LOWERCASE_CHAR_CODES
-  if (includeUppercase) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES)
-  if (includeSymbols) charCodes = charCodes.concat(SYMBOL_CHAR_CODES)
-  if (includeNumbers) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
+  let charCodes = lowerCharsFromTables
+  if (includeUppercase) charCodes = charCodes.concat(upperCharsFromTables)
+  if (includeSymbols) charCodes = charCodes.concat(specialsCharsFromTables)
+  if (includeNumbers) charCodes = charCodes.concat(digitCharsFromTables)
   
   const passwordCharacters = []
   for (let i = 0; i < characterAmount; i++) {
